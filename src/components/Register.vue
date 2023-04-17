@@ -72,7 +72,8 @@
   
   <script>
   import { ref } from 'vue'
-  import { useStore } from 'vuex'
+  //import { useStore } from 'vuex'
+  import { store } from '../store'
   import { useRouter } from 'vue-router'
   
   export default {
@@ -83,12 +84,12 @@
       const password = ref('')
       const error = ref(null)
   
-      const store = useStore()
+      const storeRef = store;
       const router = useRouter()
   
       const Register = async () => {
         try {
-          await store.dispatch('register', {
+          await storeRef.dispatch('register', {
             email: email.value,
             password: password.value,
             name: name.value
