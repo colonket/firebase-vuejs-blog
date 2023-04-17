@@ -1,14 +1,8 @@
-# shabby-firebase
+# Shabby's Gallery 
 
-This template should help get you started developing with Vue 3 in Vite.
+www.shabbysgallery.com
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+VueJS + Firebase Blogging App
 
 ## Project Setup
 
@@ -27,3 +21,8 @@ pnpm dev
 ```sh
 pnpm build
 ```
+
+## Credits
+
+Thanks to [Dotun Jolaoso (@dotunj)](https://github.com/dotunj) of LogRocket for their tutorial "Vue 3 and Firebase Authentication"
+<https://blog.logrocket.com/authentication-vue-3-firebase/>
