@@ -1,8 +1,10 @@
-# Shabby's Gallery 
+# Firebase + VueJS Blog
 
-www.shabbysgallery.com
+Serverless blogging app 
 
-VueJS + Firebase Blogging App
+* Backend => Firebase
+* Frontend => VueJS
+* CSS => Bulma
 
 ## Project Setup
 
