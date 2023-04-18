@@ -1,20 +1,20 @@
 <template>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="is-8">
           <div class="card">
             <div class="card-header">Register</div>
             <div class="card-body">
-              <div v-if="error" class="alert alert-danger">{{error}}</div>
+              <div v-if="error" class="message is-danger">{{error}}</div>
               <form action="#" @submit.prevent="Register">
-                <div class="form-group row">
-                  <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                <div class="field is-grouped row">
+                  <label for="name" class="is-4 label has-text-right">Name</label>
   
-                  <div class="col-md-6">
+                  <div class="is-6">
                     <input
                       id="name"
                       type="name"
-                      class="form-control"
+                      class="control"
                       name="name"
                       value
                       required
@@ -24,14 +24,14 @@
                   </div>
                 </div>
   
-                <div class="form-group row">
-                  <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                <div class="field is-grouped row">
+                  <label for="email" class="is-4 label has-text-right">Email</label>
   
-                  <div class="col-md-6">
+                  <div class="is-6">
                     <input
                       id="email"
                       type="email"
-                      class="form-control"
+                      class="control"
                       name="email"
                       value
                       required
@@ -41,14 +41,14 @@
                   </div>
                 </div>
   
-                <div class="form-group row">
-                  <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                <div class="field is-grouped row">
+                  <label for="password" class="is-4 label has-text-right">Password</label>
   
-                  <div class="col-md-6">
+                  <div class="is-6">
                     <input
                       id="password"
                       type="password"
-                      class="form-control"
+                      class="control"
                       name="password"
                       required
                       v-model="password"
@@ -56,8 +56,8 @@
                   </div>
                 </div>
   
-                <div class="form-group row mb-0">
-                  <div class="col-md-8 offset-md-4">
+                <div class="field is-grouped row mb-0">
+                  <div class="is-8 offset-md-4">
                     <button type="submit" class="btn btn-primary">Register</button>
                   </div>
                 </div>

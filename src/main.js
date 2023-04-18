@@ -4,6 +4,9 @@ import App from './App.vue'
 import router from "./index";
 import { store } from "./store";
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'buefy/dist/buefy.css';
 
-createApp(App).use(router).use(store).mount('#app')
+const app = createApp(App)
+app.use(router);
+app.use(store);
+const mountedApp = app.mount('#app');

@@ -1,12 +1,12 @@
 <template>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="is-8">
           <div class="card">
             <div v-if="user.loggedIn">
               <div class="card-header">Welcome, {{user.data.displayName}}</div>
               <div class="card-body">
-                <div class="alert alert-success" role="alert">
+                <div class="message alert-success" role="alert">
                 You are logged in!
                 <div class="my-4">
 					<button  @click.prevent="signOut" class="btn btn-primary">Log Out</button>
@@ -15,7 +15,7 @@
             </div>
           </div>
           <div v-else class="p-4">
-			<div class="alert alert-danger" role="alert">
+			<div class="message is-danger" role="alert">
 				<h2>You are not logged in!</h2>
 			</div>
 
