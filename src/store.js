@@ -27,8 +27,13 @@ export const store = createStore({
             const response = await createUserWithEmailAndPassword(auth, email, password)
             if (response) {
                 context.commit('SET_USER', response.user)
-                //response.user.updateProfile({displayName: name})
-                updateProfile({displayName: name})
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(()=>{
+                    // Update success
+                }).catch((error) => {
+                    throw new Error('Unable to update user profile')
+                });
             } else {
                 throw new Error('Unable to register user')
             }

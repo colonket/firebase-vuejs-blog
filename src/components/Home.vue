@@ -16,38 +16,34 @@
     </div>
 </template>
   
-  <script>
-  import { store } from "../store";
-  import { useRouter } from "vue-router";
-  import { computed } from "vue";
-  import { auth } from '../firebase';
-  
-  
-  export default {
-    name: "HomeComponent",
-  
-    setup() {
-  
-        const userStore = store;
-        const router = useRouter();
-    
-        auth.onAuthStateChanged(user => {
-        userStore.dispatch("fetchUser", user);
-        });
-    
-        const user = computed(() => {
-            return userStore.getters.user;
-        });
-    
-        const signOut = async () => {
-            await userStore.dispatch('logOut')
-            router.push('/')
-        }
-    
-        return {user,signOut}
-   }
-  
-  
-  
-  };
-  </script>
+<script>
+import { store } from "../store";
+import { useRouter } from "vue-router";
+import { computed } from "vue";
+import { auth } from '../firebase';
+
+export default {
+name: "HomeComponent",
+
+setup() {
+
+	const userStore = store;
+	const router = useRouter();
+
+	auth.onAuthStateChanged(user => {
+		userStore.dispatch("fetchUser", user);
+	});
+
+	const user = computed(() => {
+		return userStore.getters.user;
+	});
+
+	const signOut = async () => {
+		await userStore.dispatch('logOut')
+		router.push('/')
+	}
+
+	return {user,signOut}
+}
+};
+</script>
