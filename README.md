@@ -1,10 +1,13 @@
 # Firebase + VueJS Blog
 
-Serverless blogging app 
+Serverless blogging app
 
-| Backend | Firebase |
-| Frontend | VueJS |
-| CSS | Bulma |
+- Frontend
+  - VueJS
+- Backend
+  - Firebase
+- CSS
+  - Buefy (Lightweight Bulma)
 
 ## Project Setup
 
