@@ -9,7 +9,7 @@
                 <div class="message alert-success" role="alert">
                 You are logged in!
                 <div class="my-4">
-					<button  @click.prevent="signOut" class="btn btn-primary">Log Out</button>
+                <button  @click.prevent="signOut" class="btn btn-primary">Log Out</button>
                 </div>
               </div>
             </div>

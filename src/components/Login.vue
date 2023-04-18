@@ -5,7 +5,6 @@
 			<form action="#"  @submit.prevent="Login">
 				<div class="columns is-flex is-flex-direction-column box">
 					<div class="column">
-						<label for="email">Email</label>
 						<input
 							id="email"
 							type="email"
@@ -19,7 +18,6 @@
 						/>
 					</div>
 					<div class="column">
-						<label for="password">Password</label>
 						<input
 							id="password"
 							type="password"
