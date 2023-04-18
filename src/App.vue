@@ -7,11 +7,6 @@
   </div>
 </template>
 
-<style>
-  @import 'buefy/dist/buefy.css';
-  @import '@/assets/styles.css';
-</style>
-
 <script>
 import topnavbar from './components/Navbar.vue'
 export default {
