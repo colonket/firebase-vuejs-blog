@@ -4,7 +4,6 @@ import App from './App.vue'
 import router from "./index";
 import { store } from "./store";
 
-import 'buefy/dist/buefy.css';
 
 const app = createApp(App)
 app.use(router);
