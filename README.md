@@ -2,9 +2,9 @@
 
 Serverless blogging app 
 
-* Backend => Firebase
-* Frontend => VueJS
-* CSS => Bulma
+| Backend | Firebase |
+| Frontend | VueJS |
+| CSS | Bulma |
 
 ## Project Setup
 
