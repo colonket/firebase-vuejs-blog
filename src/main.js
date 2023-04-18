@@ -1,11 +1,12 @@
-import { createApp, useAttrs } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
 import router from "./index";
 import { store } from "./store";
 
-import "buefy/dist/buefy.css";
-import "@/assets/styles.css";
+import "buefy/dist/buefy.min.css";
+import "buefy/dist/buefy.min.js";
+import "@/assets/style.css";
 
 const app = createApp(App)
 app.use(router);

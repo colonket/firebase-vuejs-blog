@@ -5,9 +5,6 @@
 				<div class="">Welcome, {{user.data.displayName}}</div>
 				<div class="message alert-success" role="alert">
 					You are logged in!
-					<div class="my-4">
-						<button  @click.prevent="signOut" class="btn btn-primary">Log Out</button>
-					</div>
 				</div>
 			</div>
 			<div v-else>
@@ -20,7 +17,6 @@
 </template>
   
   <script>
-  //import { useStore } from "vuex";
   import { store } from "../store";
   import { useRouter } from "vue-router";
   import { computed } from "vue";
@@ -32,19 +28,19 @@
   
     setup() {
   
-        const storeThing = store;
+        const userStore = store;
         const router = useRouter();
     
         auth.onAuthStateChanged(user => {
-        storeThing.dispatch("fetchUser", user);
+        userStore.dispatch("fetchUser", user);
         });
     
         const user = computed(() => {
-			return storeThing.getters.user;
+            return userStore.getters.user;
         });
     
         const signOut = async () => {
-            await storeThing.dispatch('logOut')
+            await userStore.dispatch('logOut')
             router.push('/')
         }
     
