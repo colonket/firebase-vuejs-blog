@@ -1,14 +1,14 @@
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp } from 'vue'
+import App from './App.vue'
 
 import router from "./index";
 import { store } from "./store";
 
-import "buefy/dist/buefy.min.css";
-import "buefy/dist/buefy.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 import "@/assets/style.css";
 
 const app = createApp(App)
 app.use(router);
 app.use(store);
-const mountedApp = app.mount('#app');
+app.mount('#app');

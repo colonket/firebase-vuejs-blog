@@ -1,31 +1,27 @@
 <template>
-
-<nav id='topnavbar' class="navbar" role="navigation" aria-label="main navigation" >
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-            <h2>Home</h2>
-        </a>
-    </div>
-    <div class="navbar-end">
-        <div class="navbar-item">
-            <div class="buttons">
-                <div v-if="user.loggedIn">
-                    <button  @click.prevent="signOut" class="button is-light">Log Out</button>
-                </div>
-                <div v-else>
-                    <a class="button is-primary" href="/register">
-                        <strong>Sign Up</strong>
-                    </a>
-                    <a class="button is-light" href="/login">
-                        Log In
-                    </a>
-                </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <div v-if="user.loggedIn">
+                <form class="d-flex">
+                    <button class="btn" @click.prevent="signOut">Log Out</button>
+                </form>
+            </div>
+            <div v-else>
+                <form class="d-flex">
+                    <a class="btn btn-primary" href="/register">Sign Up</a>
+                    <a class="btn" href="/login">Log In</a>
+                </form>
             </div>
         </div>
     </div>
-
-</nav>
-
+    </nav>
 </template>
 
 <script>

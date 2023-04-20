@@ -1,20 +1,29 @@
 <template>
-    <div class="hero is-fullheight">
-		<div class="hero-body is-justify-content-center is-align-items-center">
+	<div class="container">
+	  <div class="row justify-content-center">
+		<div class="col-md-8">
+		  <div class="card">
 			<div v-if="user.loggedIn">
-				<div class="">Welcome, {{user.data.displayName}}</div>
-				<div class="message alert-success" role="alert">
-					You are logged in!
-				</div>
+  
+			<div class="card-header">Welcome, {{user.data.displayName}}</div>
+			<div class="card-body">
+			  <div class="alert alert-success" role="alert">
+			  You are logged in!
+			  <div class="my-4">
+					<button  @click.prevent="signOut" class="btn btn-primary">Log Out</button>
+			  </div>
+			   </div>
 			</div>
-			<div v-else>
-				<div class="message is-danger" role="alert">
-					<h2>You are not logged in!</h2>
-				</div>
+  
 			</div>
+			  <div v-else class="alert alert-danger" role="alert">
+				You are not logged in! 
+			  </div>
+		  </div>
 		</div>
-    </div>
-</template>
+	  </div>
+	</div>
+  </template>
   
 <script>
 import { store } from "../store";

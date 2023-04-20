@@ -1,59 +1,72 @@
 <template>
-	             
-	<div class="hero is-fullheight">
-		<div class="hero-body is-justify-content-center is-align-items-center">
-			<div v-if="error" class="message is-danger">{{error}}</div>
-			<form action="#" @submit.prevent="Register">
-				<div class="columns is-flex is-flex-direction-column box">
-					<div class="column">
-						<input 
-							id="name"
-							type="name"
-							class="input is-primary"
-							name="name"
-							value
-							required
-							autofocus
-							v-model="name"
-							placeholder="Display Name"
-						/>
-					</div>
-					<div class="column">
-						<input
-							id="email"
-							type="email"
-							class="input is-primary"
-							name="email"
-							value
-							required
-							autofocus
-							v-model="email"
-							placeholder="Email Address"
-						/>
-					</div>
-					<div class="column">
-						<input
-							id="password"
-							type="password"
-							class="input is-primary"
-							name="password"
-							required
-							v-model="password"
-							placeholder="Password"
-						/>
-					</div>
-					<div class="column">
-						<button class="button is-primary is-fullwidth" type="submit">Register</button>
-					</div>
-					<div class="has-text-centered">
-						<p class="is-size-7"> Already have an account? <a href="/login" class="has-text-primary">Log in</a>
-						</p>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+	<div class="container">
+	  <div class="row justify-content-center">
+		<div class="col-md-8">
+		  <div class="card">
+			<div class="card-header">Register</div>
+			<div class="card-body">
+			  <div v-if="error" class="alert alert-danger">{{error}}</div>
+			  <form action="#" @submit.prevent="Register">
+				<div class="form-group row">
+				  <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
   
+				  <div class="col-md-6">
+					<input
+					  id="name"
+					  type="name"
+					  class="form-control"
+					  name="name"
+					  value
+					  required
+					  autofocus
+					  v-model="name"
+					/>
+				  </div>
+				</div>
+  
+				<div class="form-group row">
+				  <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+  
+				  <div class="col-md-6">
+					<input
+					  id="email"
+					  type="email"
+					  class="form-control"
+					  name="email"
+					  value
+					  required
+					  autofocus
+					  v-model="email"
+					/>
+				  </div>
+				</div>
+  
+				<div class="form-group row">
+				  <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+  
+				  <div class="col-md-6">
+					<input
+					  id="password"
+					  type="password"
+					  class="form-control"
+					  name="password"
+					  required
+					  v-model="password"
+					/>
+				  </div>
+				</div>
+  
+				<div class="form-group row mb-0">
+				  <div class="col-md-8 offset-md-4">
+					<button type="submit" class="btn btn-primary">Register</button>
+				  </div>
+				</div>
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
   </template>
   
   
