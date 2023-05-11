@@ -11,6 +11,7 @@
             <div v-if="user.loggedIn">
                 <form class="d-flex">
                     <button class="btn" @click.prevent="signOut">Log Out</button>
+                    <a class="btn" href="/upload">Upload</a>
                 </form>
             </div>
             <div v-else>

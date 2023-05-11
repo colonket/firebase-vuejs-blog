@@ -1,17 +1,17 @@
 <template>
   <div>
-    <topnavbar />
+    <navbar />
     <main class="py-4">
-      <router-view></router-view>
+      <router-view />
     </main>
   </div>
 </template>
 
 <script>
-import topnavbar from './components/Navbar.vue'
+import navbar from './components/Navbar.vue'
 export default {
   components:{
-    topnavbar
+    navbar
   }
 };
 </script>
