@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from './components/Login.vue';
 import Register from './components/Register.vue';
 import Home from './components/Home.vue';
-import Upload from './components/Upload.vue';
+import CreatePost from './components/CreatePost.vue';
 
 const routes = [
     {
@@ -21,9 +21,9 @@ const routes = [
         component: Register
     },
     {
-        path: '/upload',
-        name: 'Upload',
-        component: Upload
+        path: '/create',
+        name: 'CreatePost',
+        component: CreatePost
     },
 ]
 

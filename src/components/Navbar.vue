@@ -9,9 +9,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             </ul>
             <div v-if="user.loggedIn">
-                <form class="d-flex">
-                    <button class="btn" @click.prevent="signOut">Log Out</button>
-                    <a class="btn" href="/upload">Upload</a>
+                <form class="d-flex gap-3">
+                    <a class="btn btn-danger" @click.prevent="signOut">Log Out</a>
+                    <a class="btn btn-secondary" href="/create">Upload</a>
                 </form>
             </div>
             <div v-else>
