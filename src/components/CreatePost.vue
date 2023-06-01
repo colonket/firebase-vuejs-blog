@@ -14,7 +14,7 @@
                 <input
                     type="file"
                     class="form-control mb-2"
-                    @change="previewImage"
+                    @change="prepareImage"
                     accept="image/*"
                 >                
                 <br>
@@ -25,10 +25,6 @@
                     v-model="caption"
                 />
             </div>
-            <div v-if="imgData!=null">                     
-                <!--<a class="btn btn-primary" @click="onUpload">Upload</a>-->
-                <img class="preview" :src="imgData">
-            </div>   
             <button type="submit" class="btn btn-primary">Create Post</button>
         </form>
     </div>
@@ -51,7 +47,7 @@ export default {
     name: "UploadComponent",
     data(){
         return{
-            title: null,
+            title: this.getTimeStamp(),
             caption: null,
             imgURL: null,
             imgData: null
@@ -63,31 +59,54 @@ export default {
             return userStore.getters.user;
         })
         return {user}
+
+    },
+    created(){
     },
     methods: {
-        previewImage(event){
-            this.imgURL=null;
+        getTimeStamp(){
+            const today = new Date();
+            const timestamp = today.toISOString();
+            return timestamp;
+        },
+        prepareImage(event){
             this.imgData = event.target.files[0];
         },
-        onUpload(){
-        },
         async createPost(){
-            this.imgURL=null;
+            if(!this.imgData){
+                console.log("No file selected!");
+                return 1;
+            }
+
+            this.title=this.getTimeStamp();
+
             const storage = getStorage();
+
+            this.imgURL=null;
             let uuid = self.crypto.randomUUID();
             const imgFileType = this.imgData.name.split('.')[1];
             const imgRef = ref(storage, `img/${uuid}.${imgFileType}`);
-            uploadBytes(imgRef, this.imgData).then(
+
+            await uploadBytes(imgRef, this.imgData).then(
                 (snapshot) => {
                     console.log('Uploaded a blob or file!');
-                    getDownloadURL(imgRef).then((url)=>{
-                        console.log(url);
-                        this.imgURL=url;
-                    }).catch((e)=>console.log(e.message))
                 }, e=>{console.log(e.message)},
             );
-            const addedDoc = await addDoc(colRefPosts, this.$data);
-            console.log(addedDoc);
+
+            await getDownloadURL(imgRef).then((url)=>{
+                this.imgURL=url;
+                console.log("Got download url! -> ",url);
+            }).catch((e)=>console.log(e.message))
+
+            const postData = {
+                title: this.title,
+                caption: this.caption,
+                imgURL: this.imgURL
+            }
+            console.log("Prepared post data json! -> ",postData);
+
+            const addedDoc = await addDoc(colRefPosts, postData);
+            console.log("Document added! -> ",addedDoc);
             this.$router.push('/');
         }
     }
