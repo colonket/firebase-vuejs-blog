@@ -76,8 +76,7 @@ export default {
             const storage = getStorage();
             let uuid = self.crypto.randomUUID();
             const imgFileType = this.imgData.name.split('.')[1];
-            const imgRef = ref(storage, `img/${uuid}.{imgFileType}`);
-            //const imgRef = ref(storage, `img/${this.imgData.name}`);
+            const imgRef = ref(storage, `img/${uuid}.${imgFileType}`);
             uploadBytes(imgRef, this.imgData).then(
                 (snapshot) => {
                     console.log('Uploaded a blob or file!');
@@ -87,9 +86,9 @@ export default {
                     }).catch((e)=>console.log(e.message))
                 }, e=>{console.log(e.message)},
             );
-            //const addedDoc = await addDoc(colRefPosts, this.$data);
-            //console.log(addedDoc);
-            //this.$router.push('/');
+            const addedDoc = await addDoc(colRefPosts, this.$data);
+            console.log(addedDoc);
+            this.$router.push('/');
         }
     }
 }

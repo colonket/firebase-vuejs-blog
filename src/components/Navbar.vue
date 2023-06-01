@@ -11,7 +11,7 @@
             <div v-if="user.loggedIn">
                 <form class="d-flex gap-3">
                     <a class="btn btn-danger" @click.prevent="signOut">Log Out</a>
-                    <a class="btn btn-secondary" href="/create">Upload</a>
+                    <a class="btn btn-secondary" href="/create">Create Post</a>
                 </form>
             </div>
             <div v-else>
