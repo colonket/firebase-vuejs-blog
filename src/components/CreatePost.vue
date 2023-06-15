@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container w-50 mx-auto">
     <div v-if="user.loggedIn">
         <form @submit.prevent="createPost">
             <div class="form-group">
@@ -22,14 +22,14 @@
                     type="text"
                     class="form-control mb-2"
                     placeholder="Caption"
-                    v-model="caption"
+                    v-model="description"
                 />
             </div>
             <button type="submit" class="btn btn-primary">Create Post</button>
         </form>
     </div>
     <div v-else>
-        <div class="">
+        <div class="" v-show="pageLoaded">
             <h3>You need to be logged in to use this page</h3>
         </div>
     </div>
@@ -42,15 +42,18 @@ import { computed } from 'vue';
 import { store } from "../store";
 import { addDoc } from "firebase/firestore";
 import { colRefPosts } from "../firebase";
+import { getAuth } from "firebase/auth";
 
 export default {
     name: "UploadComponent",
     data(){
         return{
-            title: this.getTimeStamp(),
-            caption: null,
+            title: null,
+            description: '',
             imgURL: null,
-            imgData: null
+            imgData: null,
+            pageLoaded: false,
+            date: Date(),
         }
     },
     setup(){
@@ -59,27 +62,41 @@ export default {
             return userStore.getters.user;
         })
         return {user}
-
     },
     created(){
     },
+    mounted(){
+        setTimeout(() => {
+            this.pageLoaded = true;
+        }, 1500);
+    },
     methods: {
-        getTimeStamp(){
-            const today = new Date();
-            const timestamp = today.toISOString();
-            return timestamp;
-        },
         prepareImage(event){
             this.imgData = event.target.files[0];
         },
+        getUser(){
+            const auth = getAuth();
+            const user = auth.currentUser;
+            if (user){
+                console.log(user);
+                console.log(user.uid);
+            } else {
+                console.log("User not found!");
+                return 1;
+            }
+        },
         async createPost(){
+            // Check required fields
             if(!this.imgData){
                 console.log("No file selected!");
                 return 1;
             }
+            if(!this.title){
+                console.log("No post title!");
+                return 1;
+            } 
 
-            this.title=this.getTimeStamp();
-
+            // Upload image and get URL
             const storage = getStorage();
 
             this.imgURL=null;
@@ -100,13 +117,14 @@ export default {
 
             const postData = {
                 title: this.title,
-                caption: this.caption,
-                imgURL: this.imgURL
+                imgURL: this.imgURL,
+                desc: this.description,
+                date: this.date,
             }
             console.log("Prepared post data json! -> ",postData);
-
             const addedDoc = await addDoc(colRefPosts, postData);
             console.log("Document added! -> ",addedDoc);
+
             this.$router.push('/');
         }
     }
