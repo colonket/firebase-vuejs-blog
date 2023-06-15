@@ -7,7 +7,7 @@ Serverless blogging app
 - Backend
   - Firebase
 - CSS
-  - Buefy (Lightweight Bulma)
+  - Bootstrap
 
 ## Project Setup
 
